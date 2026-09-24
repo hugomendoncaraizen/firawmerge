@@ -1,0 +1,214 @@
+<!doctype html>
+<!--
+FirawMerge viewer
+Copyright (c) 2026 Firawynix
+MIT License: Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation files to deal
+in the Software without restriction, including use, copy, modify, merge,
+publish, distribute, sublicense, and sell copies, subject to inclusion of
+this copyright and permission notice in copies or substantial portions.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; frame-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'none'">
+<title>FirawMerge · Revisão interativa</title>
+<style>
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#deebf4;background:#080e17;--cyan:#22d3ee;--border:#253b4c;--muted:#849aab}*{box-sizing:border-box}body{margin:0}.top{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 25px;border-bottom:1px solid var(--border);background:#0c1722}.brand{display:flex;gap:11px;align-items:center;font-size:19px;font-weight:800;letter-spacing:-.04em}.mark{display:grid;place-items:center;width:36px;height:36px;border:1px solid #359cb1;border-radius:9px;background:#123948;color:#79f0fc}.brand span{color:var(--cyan)}.top small{font-size:9px;letter-spacing:.14em;color:#7194a6;font-weight:800}.grid{height:calc(100vh - 64px);display:grid;grid-template-columns:270px minmax(0,1fr)}aside{border-right:1px solid var(--border);background:#0c1823;padding:23px 14px;display:flex;flex-direction:column;min-height:0}.eyebrow{color:#42c9db;font-size:9px;font-weight:800;letter-spacing:.17em}aside h1{font-size:18px;letter-spacing:-.04em;margin:11px 0 5px}aside p{color:#849aab;font-size:11px;line-height:1.5;margin:0 0 19px}.search{width:100%;padding:9px 11px;color:#dceaf3;background:#102130;border:1px solid #2b4c5d;border-radius:6px;margin-bottom:12px}.files{overflow:auto;flex:1}.file{display:block;width:100%;text-align:left;padding:10px;border:1px solid transparent;border-radius:6px;background:none;color:#c5dbe6;margin:2px 0;cursor:pointer}.file:hover{background:#172c3a}.file.active{background:#173a47;border-color:#2f8496}.file strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}.file small{display:block;color:#7b9cab;font-size:9px;margin-top:4px}.footer{padding-top:14px;border-top:1px solid var(--border);color:#6f90a0;font-size:9px;line-height:1.5}main{display:flex;flex-direction:column;min-width:0;min-height:0}.heading{min-height:104px;border-bottom:1px solid var(--border);padding:21px 25px;display:flex;align-items:center;justify-content:space-between}.heading h2{font-size:21px;letter-spacing:-.04em;margin:7px 0 3px}.heading p{font-size:11px;color:#8aa1b2;margin:0}.badge{font:10px Consolas,monospace;padding:7px 9px;border:1px solid #345869;background:#152938;border-radius:5px;color:#a2e8ee}.controls{display:flex;align-items:center;gap:16px;min-height:46px;padding:0 20px;border-bottom:1px solid var(--border);font-size:11px}.controls label{cursor:pointer;color:#9db5c3}.controls input{accent-color:var(--cyan)}.controls button,.download{padding:7px 11px;border:1px solid #3a6877;border-radius:5px;background:#163441;color:#a8ecf4;color:#a8ecf4;cursor:pointer;font-size:10px;font-weight:700}.controls button:hover,.download:hover{background:#226073}.comparison{display:flex;min-height:170px;flex:1;overflow:hidden}.pane{flex:1;min-width:0;overflow:auto;border-right:1px solid var(--border)}.pane:last-child{border:0}.pane-head{height:36px;position:sticky;top:0;z-index:2;background:#112536;border-bottom:1px solid #315266;padding:11px 12px;color:#b5d5df;font-size:10px;font-weight:800}.row{min-height:20px;display:flex;font:10px/20px Consolas,monospace;white-space:pre}.row .no{width:35px;flex:none;background:#0b1721;color:#5d778a;text-align:right;padding-right:7px;border-right:1px solid #1a3445}.row .txt{padding:0 8px;overflow:hidden;text-overflow:ellipsis;flex:1}.row.changed .txt{background:#194a4577;color:#c5f3e6}.row.conflict .txt{background:#64451e77;color:#ffe2a8}.row.equal .txt{color:#91a9b7}.row.blank .txt{opacity:.12}.fold{height:23px;background:#152a39;display:grid;place-items:center;color:#80a3b1;font:9px Consolas,monospace}.preview{height:232px;flex:none;border-top:1px solid #2c6170;background:#0b1823;display:flex;flex-direction:column}.preview-bar{min-height:45px;display:flex;align-items:center;justify-content:space-between;padding:0 18px}.preview-bar strong{font-size:11px}.preview-bar span{color:#76a0ad;font-size:10px;margin-left:9px}.preview textarea{flex:1;resize:none;border:0;border-top:1px solid #1c3545;background:#08141e;color:#d3e8f2;padding:12px 17px;font:10px/1.55 Consolas,monospace;outline:0}.empty{margin:auto;color:#87a2b2;font-size:12px;text-align:center;max-width:400px;line-height:1.6}.view-buttons{display:flex;gap:5px}.view-buttons button.active{background:#0b91a7;color:#041920;border-color:#22d3ee}@media(max-width:900px){.grid{grid-template-columns:210px minmax(0,1fr)}.heading{padding:12px 15px}.top small{display:none}.controls{flex-wrap:wrap;padding:8px 12px}.preview{height:190px}}
+.review-warning{display:none;padding:10px 20px;background:#392d18;border-bottom:1px solid #806638;color:#ffdda0;font-size:11px;line-height:1.5}.review-warning.visible{display:block}.review-warning strong{display:block;margin-bottom:3px}
+.preview-content{flex:1;min-height:0;display:flex;overflow:auto}.preview-content textarea{width:100%;height:100%}.preview-content .web-frame{width:50%;height:100%;border:0;background:#fff}.preview-content .web-frame+textarea{width:50%}.pane .web-frame{width:100%;height:calc(100% - 36px);border:0;background:#fff}.asset-image{display:block;max-width:95%;max-height:95%;object-fit:contain;margin:12px auto}.asset-info{padding:20px;color:#9cc6d2;font-size:11px}.row .cells{display:flex;min-width:max-content}.cells>span{min-width:90px;max-width:180px;padding:0 7px;border-right:1px solid #315266;overflow:hidden;text-overflow:ellipsis}
+.web-source{margin:0;padding:14px;white-space:pre-wrap;color:#c9e1ec;font:10px/1.5 Consolas,monospace}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand"><div class="mark"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 256 256" aria-hidden="true"><path d="M54 70h43l31 40 31-40h43l-56 69v47h-36v-47z" fill="none" stroke="#67e8f9" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/><path d="M53 171h33m84 0h33" stroke="#67e8f9" stroke-width="14" stroke-linecap="round"/><circle cx="128" cy="111" r="12" fill="#a5f3fc"/></svg></div>Firaw<span>Merge</span></div><small>REVISÃO INTERATIVA · ARQUIVO INDEPENDENTE</small></header>
+<div class="grid"><aside><div class="eyebrow">REVISÃO COMPARTILHADA</div><h1>Arquivos da sessão</h1><p id="sessionInfo"></p><input id="search" class="search" placeholder="Buscar arquivo…"><div id="files" class="files"></div><div class="footer">Abra este HTML em qualquer navegador. Nenhuma instalação ou conexão é necessária.</div></aside><main><div class="heading"><div><div class="eyebrow">COMPARAÇÃO / SIMULAÇÃO</div><h2 id="title">Selecione um arquivo</h2><p id="subtitle">Escolha uma versão para simular o conteúdo que seria entregue.</p></div><div id="badge" class="badge">OFFLINE</div></div><div id="reviewWarning" class="review-warning"></div><div class="controls"><label><input id="hide" type="checkbox"> Ocultar linhas iguais</label><div id="viewButtons" class="view-buttons"></div></div><div id="comparison" class="comparison"><div class="empty">Selecione um arquivo à esquerda para explorar as diferenças.</div></div><div class="preview"><div class="preview-bar"><div><strong>SIMULAÇÃO DO ARQUIVO</strong><span id="selectedVersion">Resultado do merge</span></div><button id="download" class="download">Baixar versão simulada ↓</button></div><div id="previewContent" class="preview-content"></div></div></main></div>
+<script type="application/json" id="report-data">{"version":1,"title":"FirawMerge","createdAt":"2026-09-24T18:10:23.356Z","roots":["Pasta 01","Pasta 02","Pasta 03"],"entries":[{"key":"config.txt","name":"config.txt","status":"diferente","format":"text","texts":["ambiente=produção\ncor=azul\nativo=true","ambiente=produção\ncor=ciano\nativo=true","ambiente=produção\ncor=verde\nativo=true"],"merged":"ambiente=produção\ncor=ciano-editado\nativo=true","aiSuggestion":"ambiente=produção\ncor=ciano\nativo=true","conflicts":1,"segments":[{"kind":"equal","base":["ambiente=produção"],"origin":["ambiente=produção"],"destination":["ambiente=produção"]},{"kind":"conflict","base":["cor=azul"],"origin":["cor=ciano"],"destination":["cor=verde"],"start":1,"end":2},{"kind":"equal","base":["ativo=true"],"origin":["ativo=true"],"destination":["ativo=true"]}],"review":{"model":"qwen3:8b","safe":false,"warnings":["A sugestão precisa de revisão."],"modifiedAfterAi":true}}]}</script>
+<script>const report = JSON.parse(document.getElementById('report-data').textContent);
+const $ = id => document.getElementById(id);
+let entry = null;
+let version = 'merged';
+const labels = [0, 1, 2].map(index => `${report.kind === 'file' ? 'Arquivo' : 'Pasta'} 0${(report.slots?.[index] ?? index) + 1}`);
+const sideIndex = { base: 0, origin: 1, destination: 2 };
+$('sessionInfo').textContent = `${report.entries.length} arquivo(s) com mudança · ${new Date(report.createdAt).toLocaleString('pt-BR')}`;
+
+function renderFiles() {
+  const q = $('search').value.toLocaleLowerCase('pt-BR');
+  $('files').textContent = '';
+  report.entries.filter(item => item.name.toLocaleLowerCase('pt-BR').includes(q)).forEach(item => {
+    const button = document.createElement('button');
+    button.className = `file${entry?.key === item.key ? ' active' : ''}`;
+    const name = document.createElement('strong'); name.textContent = item.name;
+    const info = document.createElement('small'); info.textContent = item.error || `${item.format || 'text'} · ${item.status}${item.conflicts ? ` · ${item.conflicts} conflito(s)` : ''}`;
+    button.append(name, info); button.onclick = () => select(item); $('files').append(button);
+  });
+}
+
+function select(item) {
+  entry = item;
+  version = ['image', 'binary'].includes(item.format) ? ['base', 'origin', 'destination'][item.assetSide ?? 2] : 'merged';
+  $('title').textContent = item.name;
+  $('subtitle').textContent = item.error || `${item.format || 'text'} · ${item.status} · ${item.conflicts || 0} conflito(s)`;
+  $('badge').textContent = item.error ? 'SEM PRÉVIA' : item.review && (!item.review.safe || item.review.modifiedAfterAi) ? 'REVISÃO NECESSÁRIA' : 'PRONTO PARA EXPLORAR';
+  renderReview(); renderFiles(); renderButtons(); renderComparison(); renderPreview();
+}
+
+function renderReview() {
+  const box = $('reviewWarning'); box.textContent = ''; box.classList.remove('visible');
+  if (!entry?.review) return;
+  const warnings = [...(entry.review.warnings || [])];
+  if (entry.review.modifiedAfterAi) warnings.push('O resultado foi alterado após a verificação automática.');
+  if (!warnings.length) return;
+  const title = document.createElement('strong'); title.textContent = `Atenção · sugestão da IA local (${entry.review.model || 'modelo não informado'})`;
+  const message = document.createElement('span'); message.textContent = warnings.join(' ');
+  box.append(title, message); box.classList.add('visible');
+}
+
+function renderButtons() {
+  const host = $('viewButtons'); host.textContent = '';
+  if (!entry || entry.error) return;
+  const keys = report.roots[0] ? ['base', 'origin', 'destination'] : ['origin', 'destination'];
+  if (!['image', 'binary'].includes(entry.format)) keys.push('merged');
+  if (typeof entry.aiSuggestion === 'string') keys.push('ai');
+  keys.forEach(key => {
+    if (['image', 'binary'].includes(entry.format) && !entry.assets?.[sideIndex[key]]) return;
+    const button = document.createElement('button'); button.textContent = key === 'merged' ? 'Merge' : key === 'ai' ? 'Sugestão da IA' : labels[sideIndex[key]];
+    button.className = version === key ? 'active' : '';
+    button.onclick = () => { version = key; renderButtons(); renderPreview(); };
+    host.append(button);
+  });
+}
+
+function dataBytes(uri) {
+  const base64 = uri.split(',')[1]; const raw = atob(base64); const bytes = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+  return bytes;
+}
+
+function safePage(html) {
+  return '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; img-src data:; style-src \'unsafe-inline\'; object-src \'none\'; base-uri \'none\'">' + html;
+}
+
+function renderPreview() {
+  const area = $('previewContent'); area.textContent = '';
+  if (!entry || entry.error) { $('selectedVersion').textContent = 'Indisponível'; return; }
+  const chosen = version === 'merged' ? 'Resultado do merge' : version === 'ai' ? 'Sugestão original da IA' : labels[sideIndex[version]];
+  $('selectedVersion').textContent = chosen;
+  if (['image', 'binary'].includes(entry.format)) {
+    if (entry.format === 'image') {
+      const image = document.createElement('img'); image.src = entry.assets[sideIndex[version]]; image.alt = chosen; image.className = 'asset-image'; area.append(image);
+    } else {
+      const info = document.createElement('div'); info.className = 'asset-info'; info.textContent = `${entry.lengths[sideIndex[version]]} bytes · versão completa incluída neste HTML`; area.append(info);
+    }
+    return;
+  }
+  const value = version === 'merged' ? entry.merged : version === 'ai' ? entry.aiSuggestion : entry.texts[sideIndex[version]];
+  const textarea = document.createElement('textarea'); textarea.id = 'content'; textarea.readOnly = true; textarea.spellcheck = false; textarea.value = value || '';
+  area.append(textarea);
+  if (entry.format === 'webpage') {
+    const frame = document.createElement('iframe'); frame.className = 'web-frame'; frame.setAttribute('sandbox', ''); frame.srcdoc = safePage(value || '');
+    area.prepend(frame);
+  }
+}
+
+function tableCells(raw, delimiter) {
+  const cells = []; let cell = ''; let quoted = false;
+  for (let i = 0; i < raw.length; i++) {
+    const char = raw[i];
+    if (char === '"') { if (quoted && raw[i + 1] === '"') { cell += '"'; i++; } else quoted = !quoted; }
+    else if (char === delimiter && !quoted) { cells.push(cell); cell = ''; }
+    else cell += char;
+  }
+  cells.push(cell); return cells;
+}
+
+function addRow(body, number, value, kind, table) {
+  const row = document.createElement('div'); row.className = `row ${kind}${value === undefined ? ' blank' : ''}`;
+  const no = document.createElement('span'); no.className = 'no'; no.textContent = value === undefined ? '' : number;
+  const content = document.createElement('span'); content.className = 'txt';
+  if (table && value !== undefined) {
+    content.classList.add('cells');
+    tableCells(value, entry.delimiter || ',').forEach(value => { const cell = document.createElement('span'); cell.textContent = value || ' '; content.append(cell); });
+  } else content.textContent = value === undefined ? ' ' : value || ' ';
+  row.append(no, content); body.append(row);
+}
+
+function renderComparison() {
+  const area = $('comparison'); area.textContent = '';
+  if (!entry || entry.error) { const empty = document.createElement('div'); empty.className = 'empty'; empty.textContent = entry?.error || 'Selecione um arquivo.'; area.append(empty); return; }
+  const keys = report.roots[0] ? ['base', 'origin', 'destination'] : ['origin', 'destination'];
+  const panes = keys.map(key => {
+    const pane = document.createElement('div'); pane.className = 'pane';
+    const head = document.createElement('div'); head.className = 'pane-head'; head.textContent = labels[sideIndex[key]];
+    const body = document.createElement('div'); pane.append(head, body); area.append(pane);
+    return { pane, body, key };
+  });
+  if (entry.format === 'image') {
+    panes.forEach(({ body, key }) => {
+      if (!entry.assets?.[sideIndex[key]]) return;
+      const image = document.createElement('img'); image.className = 'asset-image'; image.src = entry.assets[sideIndex[key]]; image.alt = labels[sideIndex[key]]; body.append(image);
+    }); return;
+  }
+  if (entry.format === 'binary') {
+    panes.forEach(({ body, key }) => {
+      const index = sideIndex[key];
+      let hidden = 0;
+      (entry.hexes?.[index] || []).forEach((row, rowIndex) => {
+        const equal = keys.every(other => entry.hexes?.[sideIndex[other]]?.[rowIndex]?.hex.join(' ') === row.hex.join(' '));
+        if ($('hide').checked && equal) { hidden++; return; }
+        const text = `${row.offset.toString(16).padStart(8, '0')}  ${row.hex.join(' ').padEnd(47, ' ')}  ${row.ascii}`;
+        addRow(body, rowIndex + 1, text, equal ? 'equal' : 'changed', false);
+      });
+      if (hidden) { const fold = document.createElement('div'); fold.className = 'fold'; fold.textContent = `⋯ ${hidden} blocos iguais ocultos ⋯`; body.prepend(fold); }
+    }); return;
+  }
+  if (entry.format === 'webpage') {
+    panes.forEach(({ body, key }) => {
+      if ($('hide').checked) {
+        const source = document.createElement('pre'); source.className = 'web-source';
+        source.textContent = (entry.segments || []).map(segment => segment.kind === 'equal' ?
+          `⋯ ${segment[key]?.length || 0} linhas iguais ocultas ⋯` : (segment[key] || []).join('\n')).join('\n');
+        body.append(source);
+      } else {
+        const frame = document.createElement('iframe'); frame.className = 'web-frame'; frame.setAttribute('sandbox', ''); frame.srcdoc = safePage(entry.texts[sideIndex[key]] || ''); body.append(frame);
+      }
+    });
+    return;
+  }
+  const counts = Object.fromEntries(keys.map(key => [key, 1]));
+  for (const segment of entry.segments || []) {
+    if ($('hide').checked && segment.kind === 'equal' && segment.origin?.length) {
+      panes.forEach(({ body, key }) => {
+        const fold = document.createElement('div'); fold.className = 'fold'; fold.textContent = `⋯ ${segment[key].length} linhas iguais ocultas ⋯`;
+        body.append(fold); counts[key] += segment[key].length;
+      }); continue;
+    }
+    const max = Math.max(...keys.map(key => segment[key]?.length || 0));
+    for (let row = 0; row < max; row++) panes.forEach(({ body, key }) => {
+      const value = segment[key]?.[row]; addRow(body, value === undefined ? '' : counts[key]++, value, segment.kind, entry.format === 'table');
+    });
+  }
+  let syncing = false;
+  panes.forEach(({ pane }) => pane.onscroll = () => {
+    if (syncing) return; syncing = true;
+    panes.forEach(other => { if (other.pane !== pane) { other.pane.scrollTop = pane.scrollTop; other.pane.scrollLeft = pane.scrollLeft; } });
+    requestAnimationFrame(() => { syncing = false; });
+  });
+}
+
+$('download').onclick = () => {
+  if (!entry || entry.error) return;
+  const asset = ['image', 'binary'].includes(entry.format);
+  const bytes = asset ? dataBytes(entry.assets[sideIndex[version]]) : null;
+  const value = asset ? bytes : $('content')?.value || '';
+  const blob = new Blob([value], { type: asset ? 'application/octet-stream' : 'text/plain;charset=utf-8' });
+  const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = entry.name.split('/').pop();
+  document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+};
+$('hide').onchange = renderComparison;
+$('search').oninput = renderFiles;
+renderFiles(); if (report.entries.length) select(report.entries[0]);
+</script>
+</body></html>
+
