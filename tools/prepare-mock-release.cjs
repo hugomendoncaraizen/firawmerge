@@ -51,7 +51,8 @@ const project = {
     { rotulo: 'Instalador completo (sem internet)', url: files[`FirawMerge-${pkg.version}-Setup.exe`].url },
     { rotulo: 'Portátil x64', url: files[`FirawMerge-${pkg.version}-x64.exe`].url },
     { rotulo: 'Portátil x86', url: files[`FirawMerge-${pkg.version}-ia32.exe`].url },
-    { rotulo: 'Certificado público (.cer)', url: files['FirawMergeContext.cer'].url }
+    { rotulo: 'Certificado público (.cer)', url: files['FirawMergeContext.cer'].url },
+    { rotulo: 'Código-fonte no GitHub', url: 'https://github.com/hugomendoncaraizen/firawmerge' }
   ],
   jogarUrl: null, siteUrl: 'https://firawmerge.firawynix.com.br/', destaque: false, ordem: 50
 };

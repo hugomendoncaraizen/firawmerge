@@ -47,6 +47,10 @@
     {
       "rotulo": "Certificado público (.cer)",
       "url": "https://firawmerge.firawynix.com.br/downloads/FirawMergeContext.cer"
+    },
+    {
+      "rotulo": "Código-fonte no GitHub",
+      "url": "https://github.com/hugomendoncaraizen/firawmerge"
     }
   ],
   "jogarUrl": null,
