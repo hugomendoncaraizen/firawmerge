@@ -2,7 +2,7 @@
 
 Aplicativo Windows para comparar arquivos ou pastas em dois ou três ambientes, resolver alterações e compartilhar uma revisão interativa. Identidade visual própria, no tema ciano dos projetos Firawynix.
 
-[Site e downloads](https://firawmerge.firawynix.com.br/) · [Apoiar o projeto](https://firawynix.com.br/apoie?de=firawmerge)
+[Site e downloads](https://firawmerge.firawynix.com.br/) · [Microsoft Store](https://apps.microsoft.com/detail/9PJZHNVKWD2Q) · [Apoiar o projeto](https://firawynix.com.br/apoie?de=firawmerge)
 
 ![Janela principal](assets/screenshot.png)
 
@@ -43,7 +43,7 @@ Os downloads estão publicados em `https://firawmerge.firawynix.com.br/downloads
 
 ## Microsoft Store
 
-O produto reservado na Store usa a identidade `Firawynix.FirawMerge` (ID `9PJZHNVKWD2Q`). `npm run dist:store` gera pacotes AppX x64 e x86 em `release/store/` com a identidade do Partner Center. O build precisa do Windows SDK com `MakeAppx.exe`; quando a versão do `electron-builder` não consegue iniciar a ferramenta embutida, o script usa a instalação do SDK. Os pacotes são enviados sem assinatura local para a Store, que faz a assinatura durante a certificação. Não distribua os AppX sem essa etapa.
+O [FirawMerge na Microsoft Store](https://apps.microsoft.com/detail/9PJZHNVKWD2Q) usa a identidade `Firawynix.FirawMerge` (ID `9PJZHNVKWD2Q`). `npm run dist:store` gera pacotes AppX x64 e x86 em `release/store/` com a identidade do Partner Center. O build precisa do Windows SDK com `MakeAppx.exe`; quando a versão do `electron-builder` não consegue iniciar a ferramenta embutida, o script usa a instalação do SDK. Os pacotes são enviados sem assinatura local para a Store, que faz a assinatura durante a certificação. Não distribua os AppX sem essa etapa.
 
 A edição da Store recebe atualizações pela Microsoft Store e não usa o feed `latest.yml` dos instaladores NSIS. O pacote Store atual não registra a extensão do menu principal do Explorador; para essa integração, use o instalador publicado no site. As funções de comparação, IA local, sessão salva e exportação HTML permanecem no aplicativo da Store.
 
