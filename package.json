@@ -17,6 +17,7 @@
     "dist:all": "electron-builder --win portable --x64 --ia32",
     "dist:install": "electron-builder --win nsis --x64 --ia32",
     "dist:online": "electron-builder --win nsis-web --x64 --ia32",
+    "dist:store": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-store.ps1",
     "mock:release": "node tools/prepare-mock-release.cjs"
   },
   "dependencies": {

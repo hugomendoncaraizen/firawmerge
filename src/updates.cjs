@@ -3,7 +3,7 @@ const path = require('node:path');
 const { autoUpdater } = require('electron-updater');
 
 function startUpdates(app) {
-  if (!app.isPackaged || process.env.PORTABLE_EXECUTABLE_FILE) return;
+  if (!app.isPackaged || process.windowsStore || process.env.PORTABLE_EXECUTABLE_FILE) return;
   // O instalador NSIS cria support/. O executável portátil não consulta atualizações.
   if (!fs.existsSync(path.join(path.dirname(process.execPath), 'support', 'register.ps1'))) return;
   autoUpdater.autoDownload = true;

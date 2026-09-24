@@ -41,6 +41,12 @@ O menu principal do Windows 11 usa uma [extensão `IExplorerCommand` registrada 
 
 Os downloads estão publicados em `https://firawmerge.firawynix.com.br/downloads/` e a entrada `firawmerge` está no catálogo remoto do Firawynix Center. `packaging/release-links.json` registra links, tamanhos e SHA-256; `packaging/firawmerge-center-project.json` contém a entrada correspondente. Os arquivos com sufixo `mock` permanecem por compatibilidade com o fluxo anterior e agora registram os mesmos valores de produção. Rode `npm run mock:release` para recalcular hashes após cada build. Publique também o novo `latest.yml` e os dois pacotes `.nsis.7z` a cada atualização. Não publique a chave privada do certificado.
 
+## Microsoft Store
+
+O produto reservado na Store usa a identidade `Firawynix.FirawMerge` (ID `9PJZHNVKWD2Q`). `npm run dist:store` gera pacotes AppX x64 e x86 em `release/store/` com a identidade do Partner Center. O build precisa do Windows SDK com `MakeAppx.exe`; quando a versão do `electron-builder` não consegue iniciar a ferramenta embutida, o script usa a instalação do SDK. Os pacotes são enviados sem assinatura local para a Store, que faz a assinatura durante a certificação. Não distribua os AppX sem essa etapa.
+
+A edição da Store recebe atualizações pela Microsoft Store e não usa o feed `latest.yml` dos instaladores NSIS. O pacote Store atual não registra a extensão do menu principal do Explorador; para essa integração, use o instalador publicado no site. As funções de comparação, IA local, sessão salva e exportação HTML permanecem no aplicativo da Store.
+
 ## IA para conflitos
 
 O botão **Configurar IA e hardware** lê CPU, RAM e memória dedicada da GPU. As três barras definem o orçamento usado na recomendação. A seleção de modelo é uma estimativa baseada no tamanho publicado pelo Ollama e em uma margem para execução. RAM e VRAM não são limites impostos ao serviço; a barra de CPU define a quantidade de threads enviada na chamada. O suporte efetivo da GPU depende do Ollama e do driver.
@@ -70,6 +76,7 @@ npm run smoke:viewer
 npm run dist:all
 npm run dist:install
 npm run dist:online
+npm run dist:store
 npm run mock:release
 ```
 
