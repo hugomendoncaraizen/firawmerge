@@ -10,6 +10,8 @@ body{padding-bottom:var(--footer-height)}
 .foot-links{display:flex;align-items:center;gap:12px}
 .foot-links a{padding:10px 12px;color:#bdd5e0;font-weight:700;white-space:nowrap;border-radius:7px}
 .foot-links a:hover{background:#173544;color:var(--cyan)}
+.foot-links .foot-store{border:1px solid #43b9cb;background:#102f3c;color:#92e9f6;box-shadow:inset 0 0 0 1px #27798a33}
+.foot-links .foot-store:hover{border-color:#7ce9f8;background:#194657;color:#f3fbff}
 .foot-links .foot-support{background:linear-gradient(125deg,#2dcde6,#73e8fa);color:#06202a;padding:11px 18px}
 .foot-links .foot-support:hover{background:#94f4ff;color:#06202a}
 .foot-downloads{position:relative}
@@ -19,5 +21,5 @@ body{padding-bottom:var(--footer-height)}
 .foot-download-menu{position:absolute;bottom:calc(100% + 13px);left:0;min-width:250px;padding:8px;background:#102332;border:1px solid #3b6174;border-radius:10px;box-shadow:0 20px 50px #020a12d9;display:grid;gap:2px}
 .foot-download-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 12px;color:#e1f4fb}
 .foot-download-menu small{font-size:11px;color:#88a8b8;font-weight:500;white-space:nowrap}
-@media(max-width:760px){.foot-credit{display:none}}
-@media(max-width:640px){:root{--footer-height:102px}.site-footer .foot{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:8px 0}.site-footer .brand{font-size:16px}.site-footer .brand img{width:24px;height:24px}.foot-links{justify-content:space-between;gap:2px}.foot-links>a{font-size:11px;padding:7px 5px}.foot-links .foot-support{padding:8px 9px}.foot-downloads summary{font-size:11px;padding:7px 5px}.foot-download-menu{min-width:min(270px,calc(100vw - 32px))}.foot-download-menu a{font-size:12px;padding:10px}}
+@media(max-width:900px){.foot-credit{display:none}.foot-links{gap:5px}.foot-links>a{padding:9px 8px}}
+@media(max-width:640px){:root{--footer-height:132px}.site-footer .foot{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:8px 0}.site-footer .brand{font-size:16px}.site-footer .brand img{width:24px;height:24px}.foot-links{justify-content:flex-start;flex-wrap:wrap;gap:3px 6px}.foot-links>a{font-size:11px;padding:7px 5px}.foot-links .foot-store{padding:7px 8px}.foot-links .foot-support{padding:8px 9px}.foot-downloads summary{font-size:11px;padding:7px 5px}.foot-download-menu{min-width:min(270px,calc(100vw - 32px))}.foot-download-menu a{font-size:12px;padding:10px}}
